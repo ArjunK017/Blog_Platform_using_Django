@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlogP - Signup</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 400px; /* Decrease the max-width to make the container smaller */
+      margin: 0 auto;
+      margin-top: 10%;
+      padding: 20px; /* Adjust the padding as desired */
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      box-sizing: border-box; /* Include padding and border in width calculation */
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    
+    .form-group button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #333;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .form-group button:hover {
+      background-color: #555;
+    }
+    
+    p {
+      color: #333;
+      text-align: center; /* Center the text */
+      margin-top: 20px; /* Add some space between the text and the form */
+    }
+    
+    a {
+      color: #333;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 480px) {
+      .container {
+        margin-top: 5%; /* Decrease the margin-top to make the form closer to the top */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form action="/signup/" method="post">
+      {% csrf_token %}
+      {% if error_message %}
+  <div class="alert">
+    {{ error_message }}
+  </div>
+  {% endif %}
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        
+      </div>
+      <div class="form-group">
+        <label for="password1">Password</label>
+        <input type="password" id="password1" name="password1" required>
+        <font size="-2"><p>* <i>Password should be combinations, Numbers and Characters.</p></font>
+        <font size="-2"><p>* <i>Password should not be same as username.</p></font>
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input type="password" id="password2" name="password2" required>
+      </div>
+      
+      <div class="form-group">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+    
+      <p><b>Already have an Account? <a href="/login/">Login</a></p>
+    
+  </div>
+</body>
+</html>
