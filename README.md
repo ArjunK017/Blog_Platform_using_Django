@@ -1,0 +1,1 @@
+# Blog_Platform_using_Django
